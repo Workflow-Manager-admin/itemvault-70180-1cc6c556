@@ -15,3 +15,9 @@ Quit the server with CONTROL-C.
 
 WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
 For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+[25/Jun/2025 04:56:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 04:56:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 04:56:30] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 04:56:30] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 04:56:30] "GET /docs/ HTTP/1.1" 200 2213
+[25/Jun/2025 04:56:31] "GET /docs/ HTTP/1.1" 200 2213

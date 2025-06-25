@@ -6,6 +6,6 @@ from .models import Item
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     """Admin interface for Item model."""
-    list_display = ("id", "title", "user", "created", "updated")
-    search_fields = ("title", "content", "user__username")
+    list_display = ("id", "title", "created", "updated")
+    search_fields = ("title", "content")
     readonly_fields = ("created", "updated")

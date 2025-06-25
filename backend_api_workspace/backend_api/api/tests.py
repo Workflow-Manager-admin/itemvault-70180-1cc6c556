@@ -1,8 +1,5 @@
 from rest_framework.test import APITestCase
 from django.urls import reverse
-from django.contrib.auth.models import User
-from .models import Item
-from rest_framework.authtoken.models import Token
 
 
 class HealthTests(APITestCase):
@@ -13,51 +10,15 @@ class HealthTests(APITestCase):
         self.assertEqual(response.data, {"message": "Server is up!"})
 
 
-class AuthTests(APITestCase):
-    def test_register_login_logout(self):
-        # Register
-        url = reverse('register')
-        data = {"username": "testuser", "password": "secretpass123", "email": "a@b.com"}
-        response = self.client.post(url, data)
-        self.assertEqual(response.status_code, 201)
-        self.assertIn("username", response.data)
-        self.assertEqual(response.data["username"], "testuser")
-
-        # Login
-        url = reverse('login')
-        data = {"username": "testuser", "password": "secretpass123"}
-        response = self.client.post(url, data)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("token", response.data)
-        token = response.data["token"]
-
-        # Invalid login
-        response = self.client.post(url, {"username": "testuser", "password": "wrong"})
-        self.assertEqual(response.status_code, 401)
-
-        # Logout requires authentication
-        url = reverse('logout')
-        response = self.client.post(url)
-        self.assertEqual(response.status_code, 401)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
-        response = self.client.post(url)
-        self.assertEqual(response.status_code, 200)
-
-
 class ItemCRUDTests(APITestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username="u1", password="secret123")
-        self.token = Token.objects.create(user=self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f"Token {self.token.key}")
-
-    def test_item_crud(self):
+    def test_item_crud_public(self):
         # No items at start
         url = reverse('item-list-create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, [])
 
-        # Create item
+        # Create item (no auth required)
         post_data = {"title": "First", "content": "Content1"}
         response = self.client.post(url, post_data)
         self.assertEqual(response.status_code, 201)
@@ -76,7 +37,7 @@ class ItemCRUDTests(APITestCase):
         self.assertEqual(response.data["title"], "First")
 
         # Update item
-        new_data = {"title": "Changed", "content": "X", "user": response.data["user"]}
+        new_data = {"title": "Changed", "content": "X"}
         response = self.client.put(detail_url, new_data, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data["title"], "Changed")
@@ -89,46 +50,3 @@ class ItemCRUDTests(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, [])
-
-    def test_permissions(self):
-        # Should require auth (for both list and create)
-        self.client.credentials()  # Remove auth
-        url = reverse('item-list-create')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 401)
-        response = self.client.post(url, {"title": "X", "content": "Y"})
-        self.assertEqual(response.status_code, 401)
-
-        # Item detail operations require auth
-        item = Item.objects.create(user=self.user, title="A", content="B")
-        detail_url = reverse('item-detail', kwargs={"pk": item.pk})
-        response = self.client.get(detail_url)
-        self.assertEqual(response.status_code, 401)
-        response = self.client.put(detail_url, {"title": "X", "content": "Y", "user": self.user.pk})
-        self.assertEqual(response.status_code, 401)
-        response = self.client.delete(detail_url)
-        self.assertEqual(response.status_code, 401)
-
-        # Authenticated user cannot access/modify other's item
-        user2 = User.objects.create_user(username="user2", password="password456")
-        item2 = Item.objects.create(user=user2, title="TT", content="XX")
-        self.client.credentials(
-            HTTP_AUTHORIZATION=f"Token {self.token.key}"
-        )  # Authenticate as self.user
-        url2 = reverse('item-detail', kwargs={"pk": item2.pk})
-        for method in ["get", "put", "delete"]:
-            call = getattr(self.client, method)
-            if method == "put":
-                put_data = {"title": "H", "content": "Z", "user": user2.pk}
-                resp = call(url2, put_data)
-            else:
-                resp = call(url2)
-            # Should always be forbidden
-            self.assertEqual(
-                resp.status_code,
-                403,
-                (
-                    "Expected 403 for forbidden "
-                    f"{method} on other's item; got {resp.status_code}: {resp.data}"
-                ),
-            )

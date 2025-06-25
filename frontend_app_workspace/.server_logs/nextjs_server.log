@@ -2,9 +2,21 @@
 > nextjs@0.1.0 dev
 > next dev -H 0.0.0.0 -p 3000
 
-   ▲ Next.js 15.2.3
-   - Local:        http://localhost:3000
-   - Network:      http://0.0.0.0:3000
-
- ✓ Starting...
- ✓ Ready in 1415ms
+ ⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at <unknown> (Error: listen EADDRINUSE: address ○ Compiling / ...
+ ✓ Compiled / in 5.1s (1024 modules)
+ GET / 200 in 448ms
+ ⚠ Blocked cross-origin request from vscode-internal-1872-beta.beta01.cloud.kavia.ai. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / 200 in 18ms
+ ○ Compiling /items ...
+ ✓ Compiled /items in 546ms (1004 modules)
+ GET /items 200 in 781ms
+ GET / 200 in 25ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled /login in 323ms (1011 modules)
+ GET /login 200 in 404ms
+ ✓ Compiled /register in 447ms (1018 modules)
+ GET /register 200 in 563ms
+ GET /register 200 in 18ms

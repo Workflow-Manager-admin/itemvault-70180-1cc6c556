@@ -35,3 +35,10 @@ body {
 .bg-secondary { background: var(--secondary) !important; }
 .text-accent { color: var(--accent) !important; }
 .bg-accent { background: var(--accent) !important; }
+
+/* Notification toast body font */
+.Toastify__toast-body {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--foreground);
+}

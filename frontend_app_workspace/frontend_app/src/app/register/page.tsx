@@ -38,22 +38,26 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="max-w-sm mx-auto mt-20 border p-6 rounded shadow bg-white">
-      <h1 className="text-xl font-bold mb-4 text-center">Register for ItemVault</h1>
-      <form className="space-y-4" onSubmit={handleSubmit}>
+    <div className="max-w-sm mx-auto mt-24 xs:mt-28 border bg-white rounded-xl shadow-md p-7">
+      <h1 className="text-2xl font-extrabold mb-6 text-accent text-center">Create your ItemVault Account</h1>
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <label className="text-sm text-accent font-bold" htmlFor="reg-username">Username</label>
         <input
-          className="border px-2 py-1 rounded w-full"
+          className="border px-4 py-2 rounded-lg w-full bg-[var(--background)] focus:outline-accent"
           type="text"
           name="username"
+          id="reg-username"
           placeholder="Username"
           required
           value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}
         />
+        <label className="text-sm text-accent font-bold" htmlFor="reg-password">Password</label>
         <input
-          className="border px-2 py-1 rounded w-full"
+          className="border px-4 py-2 rounded-lg w-full bg-[var(--background)] focus:outline-accent"
           type="password"
           name="password"
+          id="reg-password"
           placeholder="Password"
           required
           value={form.password}
@@ -61,15 +65,32 @@ export default function RegisterPage() {
         />
         <button
           type="submit"
-          className="bg-accent text-white px-4 py-2 rounded w-full"
+          className="btn-accent mt-1"
           disabled={submitting}
         >
           {submitting ? "Registering..." : "Register"}
         </button>
       </form>
-      <p className="mt-4 text-center">
-        Already have an account? <a className="text-primary hover:underline" href="/login">Login here</a>
+      <p className="mt-6 text-center text-sm">
+        Already have an account? <a className="text-primary hover:underline font-bold" href="/login">Login here</a>
       </p>
+      <style jsx>{`
+        .btn-accent {
+          background: var(--accent);
+          color: #fff;
+          padding: 0.7rem 0;
+          border-radius: 0.5rem;
+          font-weight: 700;
+          outline: none;
+          border: none;
+          transition: background 0.18s;
+          width: 100%;
+          font-size: 1rem;
+        }
+        .btn-accent:hover:not(:disabled) {
+          background: #248345;
+        }
+      `}</style>
     </div>
   );
 }

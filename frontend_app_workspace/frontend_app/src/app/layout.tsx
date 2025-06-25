@@ -29,13 +29,32 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
         style={{ background: "var(--background)", color: "var(--foreground)" }}
       >
         <AuthProvider>
           <NotificationProvider>
-            <Header />
-            <main>{children}</main>
+            <div className="flex flex-col min-h-screen bg-[var(--background)]">
+              <Header />
+              <div className="flex flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 gap-10">
+                {/* Sidebar for larger screens */}
+                <aside className="hidden lg:block w-64 py-8 px-4 bg-white/80 dark:bg-black/30 rounded-xl shadow h-fit mt-8 self-start">
+                  <h2 className="text-lg font-bold mb-2 text-primary">Quick Links</h2>
+                  <ul className="space-y-1">
+                    <li>
+                      <a className="text-foreground/80 hover:text-primary transition-colors" href="/items">Items</a>
+                    </li>
+                  </ul>
+                  <div className="mt-8">
+                    <span className="inline-block bg-secondary px-3 py-1 rounded-lg text-xs text-white">Minimal UI</span>
+                  </div>
+                </aside>
+                <main className="flex-1 py-8">{children}</main>
+              </div>
+              <footer className="text-center text-xs text-foreground/60 mt-8 py-7 border-t bg-white/70 dark:bg-[#111]/50">
+                &copy; {new Date().getFullYear()} ItemVault &middot; Modern minimal full-stack app
+              </footer>
+            </div>
           </NotificationProvider>
         </AuthProvider>
       </body>

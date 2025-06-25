@@ -30,43 +30,76 @@ function ItemForm({
 
   return (
     <form
-      className="flex flex-col gap-2 border p-4 bg-gray-50 rounded"
+      className="flex flex-col gap-2 border p-5 bg-white rounded-xl shadow transition-all max-w-lg"
+      style={{ boxShadow: "0 2px 8px rgba(0,0,0,.04)" }}
       onSubmit={(e) => {
         e.preventDefault();
         onSave({ title, description });
       }}
     >
+      <label className="font-medium text-sm mt-2 mb-0 text-primary" htmlFor="title">Title</label>
       <input
-        className="border px-2 py-1 rounded"
+        id="title"
+        className="border rounded px-3 py-2 focus:outline-primary bg-[var(--background)]"
         type="text"
         required
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        autoFocus
       />
+      <label className="font-medium text-sm mt-2 mb-0 text-primary" htmlFor="desc">Description</label>
       <textarea
-        className="border px-2 py-1 rounded"
+        id="desc"
+        className="border rounded px-3 py-2 focus:outline-primary bg-[var(--background)]"
         required
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         rows={3}
       />
-      <div className="flex gap-2 mt-2">
+      <div className="flex gap-3 mt-4">
         <button
           type="submit"
-          className="bg-primary text-white py-1 px-4 rounded hover:bg-opacity-90"
+          className="btn-primary"
         >
           Save
         </button>
         <button
           type="button"
-          className="bg-gray-300 text-gray-700 py-1 px-4 rounded"
+          className="btn-secondary-light"
           onClick={onCancel}
         >
           Cancel
         </button>
       </div>
+      <style jsx>{`
+        .btn-primary {
+          background: var(--primary);
+          color: #fff;
+          padding: 0.5rem 1.5rem;
+          font-weight: 500;
+          border-radius: 0.5rem;
+          outline: none;
+          border: none;
+          transition: background 0.2s;
+        }
+        .btn-primary:hover {
+          background: #2564cf;
+        }
+        .btn-secondary-light {
+          background: #e8eaed;
+          color: #232323;
+          padding: 0.5rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-weight: 500;
+          transition: background 0.2s;
+        }
+        .btn-secondary-light:hover {
+          background: #d3d6db;
+        }
+      `}</style>
     </form>
   );
 }
@@ -132,14 +165,14 @@ export default function ItemsPage() {
 
   return (
     <ProtectedRoute>
-      <div className="max-w-xl mx-auto">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold mb-0">Your Items</h2>
+      <div className="w-full max-w-2xl mx-auto py-2">
+        <div className="flex flex-col xs:flex-row xs:items-center justify-between mb-8 gap-3">
+          <h2 className="text-2xl font-extrabold tracking-tight text-primary">Your Items</h2>
           <button
-            className="bg-primary text-white px-4 py-2 rounded"
+            className="btn-primary flex-shrink-0 w-full xs:w-auto"
             onClick={() => setCreating(true)}
           >
-            + New Item
+            <span className="inline-block align-middle mr-1 text-xl leading-none font-bold">＋</span>New Item
           </button>
         </div>
         {creating && (
@@ -149,14 +182,14 @@ export default function ItemsPage() {
           />
         )}
         {loading ? (
-          <div>Loading items...</div>
+          <div className="mt-12 text-lg text-center text-foreground/80 animate-pulse font-medium">Loading items...</div>
         ) : items.length === 0 ? (
-          <div>No items found.</div>
+          <div className="my-14 text-center text-foreground/60">No items found.<br/><span className="text-sm opacity-80">Click &ldquo;New Item&rdquo; to create one.</span></div>
         ) : (
-          <ul className="flex flex-col gap-4">
+          <ul className="grid gap-6 sm:grid-cols-2">
             {items.map((item) =>
               editingId === item.id ? (
-                <li key={item.id} className="border p-3 rounded bg-gray-50">
+                <li key={item.id} className="col-span-full">
                   <ItemForm
                     initialData={item}
                     onSave={(data) => handleUpdate(item.id, data)}
@@ -164,21 +197,27 @@ export default function ItemsPage() {
                   />
                 </li>
               ) : (
-                <li key={item.id} className="border p-3 rounded flex flex-col bg-white shadow">
-                  <div className="flex justify-between">
+                <li
+                  key={item.id}
+                  className="bg-white rounded-xl border shadow-sm p-4 flex flex-col items-start gap-2 hover:shadow-md transition-shadow relative group"
+                  style={{ minHeight: 110 }}
+                >
+                  <div className="flex justify-between w-full gap-3">
                     <div>
-                      <h3 className="font-semibold">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                      <h3 className="font-semibold text-lg text-foreground/90 mb-0">{item.title}</h3>
+                      <p className="text-foreground/60 text-sm mt-0">{item.description}</p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 items-end">
                       <button
-                        className="bg-accent text-white px-2 py-1 rounded text-sm"
+                        className="btn-accent"
+                        title="Edit"
                         onClick={() => setEditingId(item.id)}
                       >
                         Edit
                       </button>
                       <button
-                        className="bg-secondary text-white px-2 py-1 rounded text-sm"
+                        className="btn-secondary"
+                        title="Delete item"
                         onClick={() => handleDelete(item.id)}
                       >
                         Delete
@@ -191,6 +230,48 @@ export default function ItemsPage() {
           </ul>
         )}
       </div>
+      <style jsx>{`
+        .btn-primary {
+          background: var(--primary);
+          color: #fff;
+          padding: 0.55rem 1.4rem;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          font-size: 1rem;
+          border: none;
+          transition: background 0.18s;
+        }
+        .btn-primary:hover {
+          background: #195fc1;
+        }
+        .btn-accent {
+          background: var(--accent);
+          color: #fff;
+          padding: 0.3rem 1.1rem;
+          border: none;
+          border-radius: 0.4rem;
+          font-weight: 500;
+          transition: background 0.19s;
+          font-size: 0.96rem;
+        }
+        .btn-accent:hover {
+          background: #248345;
+        }
+        .btn-secondary {
+          background: var(--secondary);
+          color: #232323;
+          padding: 0.3rem 0.9rem;
+          border: none;
+          border-radius: 0.4rem;
+          font-weight: 500;
+          transition: background 0.18s;
+          font-size: 0.96rem;
+        }
+        .btn-secondary:hover {
+          background: #f8be22;
+          color: #181818;
+        }
+      `}</style>
     </ProtectedRoute>
   );
 }

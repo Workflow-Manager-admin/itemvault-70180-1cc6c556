@@ -7,21 +7,19 @@ export default function Header() {
   const { user, logout } = useAuth();
 
   return (
-    <header className="flex items-center justify-between p-4 shadow mb-6 bg-white dark:bg-black">
-      <div>
-        <Link href="/" className="font-bold text-lg text-primary">
-          ItemVault
-        </Link>
-      </div>
-      <nav className="flex gap-4">
+    <header className="w-full px-2 py-3 lg:px-8 border-b flex flex-wrap items-center justify-between bg-white/90 dark:bg-black/80 shadow-sm z-10 sticky top-0">
+      <Link href="/" className="font-extrabold tracking-tight text-xl sm:text-2xl text-primary" tabIndex={0}>
+        ItemVault
+      </Link>
+      <nav className="flex flex-wrap gap-2 lg:gap-4 items-center mt-2 lg:mt-0">
         {user ? (
           <>
-            <span className="text-gray-700">Hello, {user.username}</span>
-            <Link href="/items" className="text-primary font-semibold hover:underline">
-              Items
+            <span className="hidden md:inline-block text-foreground/70 text-sm px-2">Hi, {user.username}</span>
+            <Link href="/items" className="navlink">
+              <span className="text-primary font-medium px-2 py-1 rounded hover:bg-primary/10 transition-colors">Items</span>
             </Link>
             <button
-              className="bg-secondary text-white px-3 py-1 rounded hover:bg-opacity-90"
+              className="btn-secondary"
               onClick={logout}
             >
               Logout
@@ -29,15 +27,32 @@ export default function Header() {
           </>
         ) : (
           <>
-            <Link href="/login" className="text-primary font-semibold hover:underline">
-              Login
+            <Link href="/login" className="navlink">
+              <span className="text-primary font-medium px-3 py-1 rounded hover:bg-primary/10 transition-colors">Login</span>
             </Link>
-            <Link href="/register" className="text-accent font-semibold hover:underline">
-              Register
+            <Link href="/register" className="navlink">
+              <span className="text-accent font-medium px-3 py-1 rounded hover:bg-accent/10 transition-colors">Register</span>
             </Link>
           </>
         )}
       </nav>
+      <style jsx>{`
+        .btn-secondary {
+          background: var(--secondary);
+          color: #fff;
+          padding: 0.5rem 1.2rem;
+          border-radius: 0.5rem;
+          font-weight: 500;
+          border: none;
+          transition: background 0.2s;
+        }
+        .btn-secondary:hover {
+          background: #e6a900;
+        }
+        .navlink:focus-visible span {
+          outline: 2px solid var(--primary);
+        }
+      `}</style>
     </header>
   );
 }

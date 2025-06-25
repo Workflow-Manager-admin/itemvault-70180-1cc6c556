@@ -9,7 +9,7 @@ from .serializers import (
     UserSerializer,
     UserRegisterSerializer,
 )
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, BasePermission
 
 # For improved documentation
 from drf_yasg.utils import swagger_auto_schema
@@ -165,23 +165,42 @@ def logout_view(request):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
 
+# Custom permission: Only allow owners to retrieve/update/delete, no one else,
+# and all CRUD requires authentication (no public access).
+class ItemOwnerOrReadOnly(BasePermission):
+    """
+    PUBLIC_INTERFACE
+    Permission to only allow owners of an item to read/write it.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        # Only allow access if the user is the owner
+        return obj.user == request.user
+
 
 # PUBLIC_INTERFACE
+
+
 class ItemListCreateView(generics.ListCreateAPIView):
     """
     GET: List all items belonging to the authenticated user.
     POST: Create a new item.
 
     Authentication: Required (Token)
+    Permissions: Users can only see or create their own items.
     """
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]  # All operations require authentication
 
     @swagger_auto_schema(
         operation_summary="Get Items",
-        operation_description="List all items belonging to the authenticated user.",
+        operation_description=(
+            "List all items for the authenticated user. "
+            "Requires a valid Token in Authorization header."
+        ),
         tags=["Items"],
         responses={200: ItemSerializer(many=True)},
+        security=[{"Token": []}],
     )
     def get(self, request, *args, **kwargs):
         try:
@@ -194,10 +213,11 @@ class ItemListCreateView(generics.ListCreateAPIView):
 
     @swagger_auto_schema(
         operation_summary="Create Item",
-        operation_description="Create a new item for the authenticated user.",
+        operation_description="Create a new item for the authenticated user. Title must be unique for this user.",
         tags=["Items"],
         request_body=ItemSerializer,
-        responses={201: ItemSerializer, 400: "Validation Error"}
+        responses={201: ItemSerializer, 400: "Validation Error"},
+        security=[{"Token": []}],
     )
     def post(self, request, *args, **kwargs):
         try:
@@ -216,65 +236,116 @@ class ItemListCreateView(generics.ListCreateAPIView):
 
 
 # PUBLIC_INTERFACE
+
+
 class ItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update, or delete a single item.
 
-    Only the owner may access their items. Authentication required.
+    Only the item owner may perform any operations. Authentication and ownership required.
     """
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, ItemOwnerOrReadOnly]  # Require both authentication and ownership.
 
     @swagger_auto_schema(
         operation_summary="Retrieve Item",
         operation_description=(
-            "Retrieve details for a single item "
-            "(must be owned by the authenticated user)."
+            "Retrieve details for a single item (must be owned by the authenticated user). "
+            "Requires a valid Token in Authorization header."
         ),
         tags=["Items"],
         responses={
             200: ItemSerializer,
-            404: "Not found"
+            404: "Not found",
+            403: "Forbidden – not owner",
         },
+        security=[{"Token": []}],
     )
     def get(self, request, *args, **kwargs):
         try:
+            instance = self.get_object()
+            if instance.user != request.user:
+                return Response(
+                    {"detail": "Permission denied."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
             return super().get(request, *args, **kwargs)
+        except Item.DoesNotExist:
+            return Response(
+                {"detail": "Not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
         except Exception as e:
             return Response(
                 {"detail": f"Unable to retrieve item: {str(e)}"},
                 status=status.HTTP_404_NOT_FOUND
             )
 
+
     @swagger_auto_schema(
         operation_summary="Update Item",
         operation_description=(
-            "Update an existing item (must be owned by the authenticated user)."
+            "Update an existing item (must be owned by the authenticated user). "
+            "Requires a valid Token in the Authorization header."
         ),
         tags=["Items"],
         request_body=ItemSerializer,
-        responses={200: ItemSerializer, 400: "Validation error"}
+        responses={
+            200: ItemSerializer,
+            400: "Validation error",
+            403: "Forbidden – not owner",
+        },
+        security=[{"Token": []}],
     )
     def put(self, request, *args, **kwargs):
         try:
+            instance = self.get_object()
+            if instance.user != request.user:
+                return Response(
+                    {"detail": "Permission denied."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
             return super().put(request, *args, **kwargs)
+        except Item.DoesNotExist:
+            return Response(
+                {"detail": "Not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
         except Exception as e:
             return Response(
                 {"detail": f"Unable to update item: {str(e)}"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+
     @swagger_auto_schema(
         operation_summary="Delete Item",
         operation_description=(
-            "Delete an existing item (must be owned by the authenticated user)."
+            "Delete an existing item (must be owned by the authenticated user). "
+            "Requires a valid Token in the Authorization header."
         ),
         tags=["Items"],
-        responses={204: "No content / Deleted", 404: "Not found"}
+        responses={
+            204: "No content / Deleted",
+            404: "Not found",
+            403: "Forbidden – not owner",
+        },
+        security=[{"Token": []}],
     )
     def delete(self, request, *args, **kwargs):
         try:
+            instance = self.get_object()
+            if instance.user != request.user:
+                return Response(
+                    {"detail": "Permission denied."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
             return super().delete(request, *args, **kwargs)
+        except Item.DoesNotExist:
+            return Response(
+                {"detail": "Not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
         except Exception as e:
             return Response(
                 {"detail": f"Unable to delete item: {str(e)}"},

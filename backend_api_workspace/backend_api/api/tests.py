@@ -108,3 +108,27 @@ class ItemCRUDTests(APITestCase):
         self.assertEqual(response.status_code, 401)
         response = self.client.delete(detail_url)
         self.assertEqual(response.status_code, 401)
+
+        # Authenticated user cannot access/modify other's item
+        user2 = User.objects.create_user(username="user2", password="password456")
+        item2 = Item.objects.create(user=user2, title="TT", content="XX")
+        self.client.credentials(
+            HTTP_AUTHORIZATION=f"Token {self.token.key}"
+        )  # Authenticate as self.user
+        url2 = reverse('item-detail', kwargs={"pk": item2.pk})
+        for method in ["get", "put", "delete"]:
+            call = getattr(self.client, method)
+            if method == "put":
+                put_data = {"title": "H", "content": "Z", "user": user2.pk}
+                resp = call(url2, put_data)
+            else:
+                resp = call(url2)
+            # Should always be forbidden
+            self.assertEqual(
+                resp.status_code,
+                403,
+                (
+                    "Expected 403 for forbidden "
+                    f"{method} on other's item; got {resp.status_code}: {resp.data}"
+                ),
+            )

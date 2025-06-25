@@ -1,33 +1,14 @@
 Operations to perform:
   Apply all migrations: admin, auth, authtoken, contenttypes, sessions
 Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying auth.0001_initial... OK
-  Applying admin.0001_initial... OK
-  Applying admin.0002_logentry_remove_auto_add... OK
-  Applying admin.0003_logentry_add_action_flag_choices... OK
-  Applying contenttypes.0002_remove_content_type_name... OK
-  Applying auth.0002_alter_permission_name_max_length... OK
-  Applying auth.0003_alter_user_email_max_length... OK
-  Applying auth.0004_alter_user_username_opts... OK
-  Applying auth.0005_alter_user_last_login_null... OK
-  Applying auth.0006_require_contenttypes_0002... OK
-  Applying auth.0007_alter_validators_add_error_messages... OK
-  Applying auth.0008_alter_user_username_max_length... OK
-  Applying auth.0009_alter_user_last_name_max_length... OK
-  Applying auth.0010_alter_group_name_max_length... OK
-  Applying auth.0011_update_proxy_permissions... OK
-  Applying auth.0012_alter_user_first_name_max_length... OK
-  Applying authtoken.0001_initial... OK
-  Applying authtoken.0002_auto_20160226_1747... OK
-  Applying authtoken.0003_tokenproxy... OK
-  Applying authtoken.0004_alter_tokenproxy_options... OK
-  Applying sessions.0001_initial... OK
+  No migrations to apply.
+  Your models in app(s): 'api' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
 Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:29:00
+June 25, 2025 - 04:30:47
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -39,7 +20,19 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:29:39
+June 25, 2025 - 04:30:58
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:31:26
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -51,7 +44,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:29:58
+June 25, 2025 - 04:31:34
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -63,7 +56,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:01
+June 25, 2025 - 04:31:45
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -75,7 +68,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:08
+June 25, 2025 - 04:31:47
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -87,7 +80,43 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:10
+June 25, 2025 - 04:31:49
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:31:54
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:31:56
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:31:58
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -99,7 +128,19 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:11
+June 25, 2025 - 04:32:02
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:32:21
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -111,7 +152,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:26
+June 25, 2025 - 04:32:59
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -123,7 +164,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:29
+June 25, 2025 - 04:33:05
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -135,7 +176,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:30
+June 25, 2025 - 04:33:09
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -147,7 +188,7 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:33
+June 25, 2025 - 04:33:11
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.
@@ -159,7 +200,223 @@ Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-June 25, 2025 - 04:30:36
+June 25, 2025 - 04:33:13
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:18
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:24
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:26
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:28
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:32
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:35
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:38
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:49
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:50
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:52
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:54
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:56
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:33:59
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:34:00
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:34:07
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:34:09
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:34:11
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/backend_api_workspace/backend_api/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 04:34:13
 Django version 5.2, using settings 'config.settings'
 Starting development server at http://0.0.0.0:3001/
 Quit the server with CONTROL-C.

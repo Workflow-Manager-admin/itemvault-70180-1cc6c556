@@ -30,9 +30,12 @@ schema_view = get_schema_view(
         title="ItemVault API",
         default_version='v1',
         description=(
-            "API for ItemVault: Manage user accounts, items (notes/products), and authentication. "
-            "All item endpoints require authentication via `Token` HTTP header. "
-            "Register and login endpoints are public."
+            "API for ItemVault: Manage user accounts, items (notes/products), and authentication.<br>"
+            "<strong>Authentication:</strong> Item CRUD endpoints require authentication via "
+            "<code>Token</code> in the Authorization header.<br>"
+            "<code>Authorization: Token &lt;token_value&gt;</code><br>"
+            "Register and login endpoints are public.<br>"
+            "See docs for endpoint permissions."
         ),
         contact=openapi.Contact(email="support@example.com"),
         terms_of_service="https://www.example.com/terms/",
@@ -45,13 +48,16 @@ urlpatterns += [
     re_path(
         r'^docs/$',
         schema_view.with_ui('swagger', cache_timeout=0),
-        name='schema-swagger-ui'),
+        name='schema-swagger-ui'
+    ),
     re_path(
         r'^redoc/$',
         schema_view.with_ui('redoc', cache_timeout=0),
-        name='schema-redoc'),
+        name='schema-redoc'
+    ),
     re_path(
         r'^swagger\.json$',
         schema_view.without_ui(cache_timeout=0),
-        name='schema-json'),
+        name='schema-json'
+    ),
 ]

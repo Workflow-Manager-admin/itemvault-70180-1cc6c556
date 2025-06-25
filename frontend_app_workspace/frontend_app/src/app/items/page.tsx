@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ProtectedRoute from "../../components/ProtectedRoute";
 import {
   fetchItems,
   createItem,
@@ -164,10 +163,10 @@ export default function ItemsPage() {
   };
 
   return (
-    <ProtectedRoute>
+    <>
       <div className="w-full max-w-2xl mx-auto py-2">
         <div className="flex flex-col xs:flex-row xs:items-center justify-between mb-8 gap-3">
-          <h2 className="text-2xl font-extrabold tracking-tight text-primary">Your Items</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight text-primary">Items</h2>
           <button
             className="btn-primary flex-shrink-0 w-full xs:w-auto"
             onClick={() => setCreating(true)}
@@ -272,6 +271,6 @@ export default function ItemsPage() {
           color: #181818;
         }
       `}</style>
-    </ProtectedRoute>
+    </>
   );
 }

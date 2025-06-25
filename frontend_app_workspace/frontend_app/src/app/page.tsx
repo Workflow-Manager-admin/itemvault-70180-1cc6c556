@@ -14,16 +14,10 @@ export default function Home() {
         </div>
         <div className="flex gap-5 flex-wrap justify-center">
           <a
-            className="bg-primary text-white rounded-lg font-bold text-base px-8 py-3 transition-colors duration-200 hover:bg-[#1760bb] shadow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            href="/register"
-          >
-            Get Started For Free
-          </a>
-          <a
             className="bg-accent text-white rounded-lg font-bold text-base px-8 py-3 transition-colors duration-200 hover:bg-[#31904a] shadow focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
             href="/items"
           >
-            Demo App
+            Try the App
           </a>
         </div>
         <Image
@@ -37,8 +31,8 @@ export default function Home() {
         <div className="w-full mt-16 mb-2">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
             <div className="rounded-lg bg-white/80 border p-4 shadow flex flex-col gap-2 items-center">
-              <span className="text-primary font-bold text-lg">Secure Auth</span>
-              <span className="text-sm text-foreground/70">JWT login, protected routes, session checking.</span>
+              <span className="text-primary font-bold text-lg">Fast & Public</span>
+              <span className="text-sm text-foreground/70">No sign up needed, edit items instantly.</span>
             </div>
             <div className="rounded-lg bg-white/80 border p-4 shadow flex flex-col gap-2 items-center">
               <span className="text-accent font-bold text-lg">CRUD Items</span>

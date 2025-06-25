@@ -20,3 +20,222 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  ✓ Compiled /register in 447ms (1018 modules)
  GET /register 200 in 563ms
  GET /register 200 in 18ms
+ ✓ Compiled in 566ms (1011 modules)
+ ⨯ ./src/context/AuthContext.tsx
+Error: Failed to read source code from /home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/context/AuthContext.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/components/Header.tsx
+ ⨯ ./src/context/AuthContext.tsx
+Error: Failed to read source code from /home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/context/AuthContext.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/components/Header.tsx
+ ○ Compiling /_not-found ...
+ GET /register 500 in 5024ms
+ ⨯ ./src/context/AuthContext.tsx
+Error: Failed to read source code from /home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/context/AuthContext.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/components/Header.tsx
+ GET /_next/static/webpack/ff79461df803bb4e.webpack.hot-update.json 500 in 2257ms
+ GET /register 500 in 8ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /register 500 in 8ms
+ GET /register 500 in 9ms
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ GET /register 500 in 13ms
+ GET /register 500 in 11ms
+ GET /register 500 in 4ms
+ ⨯ ./src/app/items/page.tsx
+Error:   [31mx[0m Expected ',', got 'jsx'
+     ,-[[36;1;4m/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/src/app/items/page.tsx[0m:231:1]
+ [2m228[0m |         </ul>
+ [2m229[0m |       )}
+ [2m230[0m |     </div>
+ [2m231[0m |     <style jsx>{`
+     : [35;1m           ^^^[0m
+ [2m232[0m |       .btn-primary {
+ [2m233[0m |         background: var(--primary);
+ [2m234[0m |         color: #fff;
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/items/page.tsx
+ GET /register 500 in 6ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 8ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 7ms
+ ✓ Compiled /_not-found in 265ms (646 modules)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '951344625'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '951344625'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ GET /register 500 in 1603ms
+ GET /_next/static/webpack/270c8f1666a059b5.webpack.hot-update.json 500 in 1607ms
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '951344625'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>) {
+  digest: '951344625'
+}
+TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: e[o] is not a function
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:127)
+    at JSON.parse (<anonymous>)
+ GET /_next/static/chunks/fallback/webpack.js 500 in 1186ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 1185ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'
+}
+ GET /_next/static/chunks/fallback/main.js 500 in 105ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 103ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app/.next/server/app-paths-manifest.json'
+}
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 38ms

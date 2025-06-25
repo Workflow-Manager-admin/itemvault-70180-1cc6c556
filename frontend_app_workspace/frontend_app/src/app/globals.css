@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1a73e8;
+  --secondary: #fbbc04;
+  --accent: #34a853;
 }
 
 @theme inline {
@@ -24,3 +27,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Color classes, for inline style via Tailwind config */
+.text-primary { color: var(--primary) !important; }
+.bg-primary { background: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.bg-secondary { background: var(--secondary) !important; }
+.text-accent { color: var(--accent) !important; }
+.bg-accent { background: var(--accent) !important; }

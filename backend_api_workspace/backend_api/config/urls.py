@@ -26,13 +26,19 @@ urlpatterns = [
 ]
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="My API",
-      default_version='v1',
-      description="Test description",
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="ItemVault API",
+        default_version='v1',
+        description=(
+            "API for ItemVault: Manage user accounts, items (notes/products), and authentication. "
+            "All item endpoints require authentication via `Token` HTTP header. "
+            "Register and login endpoints are public."
+        ),
+        contact=openapi.Contact(email="support@example.com"),
+        terms_of_service="https://www.example.com/terms/",
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns += [

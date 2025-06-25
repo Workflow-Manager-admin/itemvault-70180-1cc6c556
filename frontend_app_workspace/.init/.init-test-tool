@@ -1,0 +1,4 @@
+{
+    "command": "npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/itemvault-70180-1cc6c556/frontend_app_workspace/frontend_app"
+}
